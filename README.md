@@ -1,69 +1,108 @@
-# Realtime Data Streaming | End-to-End Data Engineering Project
+# Real-Time Analytics Dashboard
 
-## Table of Contents
-- [Introduction](#introduction)
-- [System Architecture](#system-architecture)
-- [What You'll Learn](#what-youll-learn)
-- [Technologies](#technologies)
-- [Getting Started](#getting-started)
-- [Watch the Video Tutorial](#watch-the-video-tutorial)
+A scalable real-time analytics platform designed to process, analyze, and visualize streaming event data. The system ingests high-volume user events, processes them using distributed streaming frameworks, and provides real-time insights through interactive dashboards.
 
-## Introduction
+## Overview
 
-This project serves as a comprehensive guide to building an end-to-end data engineering pipeline. It covers each stage from data ingestion to processing and finally to storage, utilizing a robust tech stack that includes Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, and Cassandra. Everything is containerized using Docker for ease of deployment and scalability.
+This project demonstrates the design and implementation of an end-to-end data engineering pipeline capable of handling real-time event streams. The platform collects user activity data, processes it in real time, stores analytical metrics, and enables visualization for monitoring and decision-making.
 
-## System Architecture
+## Features
 
-![System Architecture](https://github.com/airscholar/e2e-data-engineering/blob/main/Data%20engineering%20architecture.png)
+* Real-time event ingestion and processing
+* Stream processing pipeline for analytics generation
+* Automated data transformation and aggregation
+* Interactive dashboard visualization
+* Containerized deployment using Docker
+* Scalable architecture for high-volume event streams
+* Monitoring and performance tracking
 
-The project is designed with the following components:
+## Architecture
 
-- **Data Source**: We use `randomuser.me` API to generate random user data for our pipeline.
-- **Apache Airflow**: Responsible for orchestrating the pipeline and storing fetched data in a PostgreSQL database.
-- **Apache Kafka and Zookeeper**: Used for streaming data from PostgreSQL to the processing engine.
-- **Control Center and Schema Registry**: Helps in monitoring and schema management of our Kafka streams.
-- **Apache Spark**: For data processing with its master and worker nodes.
-- **Cassandra**: Where the processed data will be stored.
+```text
+Event Producers
+       │
+       ▼
+     Kafka
+       │
+       ▼
+ Spark Streaming
+       │
+ ┌─────┴─────┐
+ ▼           ▼
+Analytics   Storage
+Database    Layer
+       │
+       ▼
+ Dashboard &
+ Visualization
+```
 
-## What You'll Learn
+## Tech Stack
 
-- Setting up a data pipeline with Apache Airflow
-- Real-time data streaming with Apache Kafka
-- Distributed synchronization with Apache Zookeeper
-- Data processing techniques with Apache Spark
-- Data storage solutions with Cassandra and PostgreSQL
-- Containerizing your entire data engineering setup with Docker
+### Data Processing
 
-## Technologies
+* Apache Kafka
+* Apache Spark Streaming
+* Python
 
-- Apache Airflow
-- Python
-- Apache Kafka
-- Apache Zookeeper
-- Apache Spark
-- Cassandra
-- PostgreSQL
-- Docker
+### Data Storage
 
-## Getting Started
+* PostgreSQL
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/airscholar/e2e-data-engineering.git
-    ```
+### Infrastructure
 
-2. Navigate to the project directory:
-    ```bash
-    cd e2e-data-engineering
-    ```
+* Docker
+* Docker Compose
 
-3. Run Docker Compose to spin up the services:
-    ```bash
-    docker-compose up
-    ```
+### Analytics & Visualization
 
-For more detailed instructions, please check out the video tutorial linked below.
+* Real-Time Monitoring Dashboard
 
-## Watch the Video Tutorial
+## Project Structure
 
-For a complete walkthrough and practical demonstration, check out our [YouTube Video Tutorial](https://www.youtube.com/watch?v=GqAcTrqKcrY).
+```text
+.
+├── dags/
+├── script/
+├── docker-compose.yml
+├── spark_stream.py
+├── requirements.txt
+├── README.md
+└── Data engineering architecture.png
+```
+
+## Workflow
+
+1. Generate or receive streaming event data.
+2. Publish events to Kafka topics.
+3. Consume events using Spark Streaming.
+4. Process and aggregate metrics in real time.
+5. Store processed data in the analytics database.
+6. Visualize business metrics through dashboards.
+
+## Key Learning Outcomes
+
+Through this project, I gained experience in:
+
+* Building real-time data pipelines
+* Stream processing with Kafka and Spark
+* Distributed data processing concepts
+* Data ingestion and transformation workflows
+* Containerized deployments using Docker
+* Analytics system design and monitoring
+
+## Future Improvements
+
+* Redis-based caching layer
+* Kubernetes deployment
+* Advanced monitoring and alerting
+* Data quality validation pipelines
+* CI/CD automation
+* Cloud deployment (AWS/GCP)
+
+
+
+Ayushi Bansal
+M.Sc. Chemistry + B.E. Mechanical Engineering
+BITS Pilani, Hyderabad Campus
+
